@@ -17,13 +17,21 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+
         $role1 = Role::create(['name'=>'Admin']);
         $role2 = Role::create(['name'=>'Basic']);
 
-        Permission::create(['name' => 'admin.create'])->assignRole($role1);
-        Permission::create(['name' => 'admin.view'])->assignRole($role1);
+        $persmisions= ['file-upload',
+                            'file-view',
+                            'file-download',
+                            'file-assing'];
+        
+        foreach ($persmisions as $permision_a) {
 
-        Permission::create(['name' => 'basic.view'])->assignRole($role2);
-        Permission::create(['name' => 'basic.create'])->assignRole($role2);
+            $permision_a != 'file-assing' ? Permission::create(['name' => $permision_a])->assignRole($role1)->assignRole($role2) : 
+                                            Permission::create(['name' => $permision_a])->assignRole($role1);
+            
+        }
+
     }
 }
