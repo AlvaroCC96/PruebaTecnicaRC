@@ -120,16 +120,4 @@ class UserController extends Controller
                         ->with('success','User updated successfully');
     }
     
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        User::find($id)->delete();
-        return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
-    }
 }

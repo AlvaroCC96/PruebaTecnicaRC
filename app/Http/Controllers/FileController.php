@@ -70,7 +70,7 @@ class FileController extends Controller
         /** 
          * Asumo cualquier tamaño para los archivos, de lo contrario se debe modificar
         */
-        //$max_size = (int)ini_get('upload_max_size') * 10240;
+        // $max_size = (int)ini_get('upload_max_size') * 10240;
         $files = $request->file('files');
         if ($files == null) {
             Alert::error('Error','No hay archivos para subir');
@@ -99,6 +99,7 @@ class FileController extends Controller
         Alert::success('Completado', 'Archivos subidos con exito');
         return back();
     }
+
     /**
      * Download file by id
      */
@@ -106,6 +107,4 @@ class FileController extends Controller
         $file = File::select('route')->where('id',$id)->get()[0];
         return Storage::download($file['route']);  
     }
-
-    
 }
