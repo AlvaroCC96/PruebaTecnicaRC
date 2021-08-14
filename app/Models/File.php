@@ -17,6 +17,8 @@ class File extends Model
     protected $fillable = [
         'file_name',
         'extension',
+        'user_id',
+        'route'
     ];
 
     /**
