@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
             'name' => 'Alvaro Castillo (Basic)',
             'email'=> 'basic@basic.com',
             'password' => bcrypt('basic')
-        ])->assignRole('Admin');
+        ])->assignRole('Basic');
 
-    }
+    }   
 }
