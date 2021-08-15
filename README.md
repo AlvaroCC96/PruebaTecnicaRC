@@ -1,63 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Prueba Tecnica RC
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 1) Instalación y configuración:
 
-## About Laravel
+- Clonar el repositorio.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Dentro de la raiz del proyecto, ejecutar los siguientes comandos para instalar las dependencias necesarias.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```sh
+npm install
+npm run dev
+composer install
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 2) Instalación:
+- Crear archivo **.env**
+    - Borrar la extension **.example** del archivo **.env.example**
 
-## Learning Laravel
+- Modificar la variable **DB_HOST**, donde debe ir la ip entregada por su modem/router a su maquina local.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 3) Configuración Docker:
 
-## Laravel Sponsors
+- Dentro de la raiz del proyecto, ejecutar los siguientes comandos para crear la imagen a través de **docker-compose** . 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```sh
+docker-compose build
+docker-compose up
+```
 
-### Premium Partners
+Se creará un contenedor con los servicios declarados en el archivo **docker-compose** Main, DB y Queue.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
+- Dentro del servicio Main, que contiene la aplicación, ejecutar: 
 
-## Contributing
+```sh
+php artisan migrate
+php artisan migrate:refresh --seed
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 4) Utilizar:
+- A través de ***localhost:8000*** en el navegador ya podemos acceder a la aplicación.
 
-## Code of Conduct
+- Usuarios:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Tipo |  Usuario | Contraseña |
+| ------ | ------ | ------ | 
+| `Admin` | `admin@gmail.com` |`admin` |
+| `Basic` | `basic@gmail.com` |`basic` |
 
-## Security Vulnerabilities
+---
+## Autor
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[ÁLVARO LUCAS CASTILLO CALABACERO](https://github.com/AlvaroCC96) - <alvarolucascc96@gmail.com> 
