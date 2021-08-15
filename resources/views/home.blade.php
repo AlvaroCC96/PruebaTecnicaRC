@@ -21,8 +21,8 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                       
                                         @if(auth()->user()->can('file-assing'))
-                                        <a class="dropdown-item" href="{{route('listAdmin')}}">Listar Archivos</a>
-                                        <a class="dropdown-item" href="#">Subir Archivo (Admin)</a>
+                                        <a class="dropdown-item" href="{{route('listAdmin')}}">Listar Todos los Archivos</a>
+                                        <a class="dropdown-item" href="{{route('uploadAdmin')}}">Subir Archivo (Admin)</a>
                                         
                                         @endif
                                         <a class="dropdown-item" href="{{route('uploadBasic')}}">Subir Archivo (Basic)</a>
@@ -34,7 +34,8 @@
                     </nav>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body text-center">
+                    <strong>MENU DE OPCIONES</strong>
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session("status") }}

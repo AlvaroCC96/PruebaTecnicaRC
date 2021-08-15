@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-around">        
-                        <label for="">Archivos </label>
+                        Archivos
                         <a href="{{route('home')}}" class="btn btn-primary"> Volver</a>  
                 </div>
                 <div class="card-body">
