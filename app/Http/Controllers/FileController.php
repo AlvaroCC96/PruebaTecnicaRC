@@ -9,6 +9,7 @@ use Exception;
 use Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 Use Alert;
 use DB;
 use Response;
@@ -75,7 +76,7 @@ class FileController extends Controller
         $users = User::all();
         return view('files.uploadAdmin', compact('users'));
     }
-        
+    
     /**
      * Save files to database , generla method for admin/basic user
      *
@@ -83,8 +84,19 @@ class FileController extends Controller
      * @return void
      */
     public function saveDataByTag(Request $request) {
-        
+        // Validation for sizes files
+        $validator = Validator::make($request->all(), [
+            'files.*' => 'max:2048',
+        ]);
+
+        if($validator->fails()){
+            Alert::error('Error','Hay archivos que sobrepasan el limite de tamaño(2MB)');
+            return back();
+            
+        }
+
         isset($request->names)? $user_id = $request->names[0]: $user_id = Auth::id(); 
+        
         $files = $request->file('files');
         if ($files != null) {
             foreach($files as $file){
