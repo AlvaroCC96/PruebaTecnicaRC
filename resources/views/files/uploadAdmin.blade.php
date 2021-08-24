@@ -12,7 +12,7 @@
                     <form method="POST" action="{{route('saveDataByTag')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <input type="file" name="files[]" class="form-control" required><br>
+                            <input id ="arrayFiles"type="file" name="files[]" class="form-control" required onChange="Filevalidation()"><br>
                             <label for="names[]">Nombre: </label>
                             <select name="names[]" class="form-control">
                                 @foreach($users as $user)
@@ -27,4 +27,6 @@
         </div>
     </div>
 </div>
+
 @endsection
+

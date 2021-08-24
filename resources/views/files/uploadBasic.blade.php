@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <form method ="POST" action="{{route('saveDataByTag')}}" enctype="multipart/form-data">
                         @csrf
-                        <input type="file" name="files[]" multiple class="form-control" required><br>
+                        <input id="arrayFiles" type="file" name="files[]" multiple class="form-control" required onChange="Filevalidation()"><br>
                         <button type="submit" class="btn btn-primary float-right mt-4">Subir Archivos</button>
                     </form>
                 </div>

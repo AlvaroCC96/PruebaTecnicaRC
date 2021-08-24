@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -89,3 +90,30 @@
 </body>
 
 </html>
+
+<script>
+    Filevalidation = () => {
+        const fi = document.getElementById('arrayFiles');
+        if (fi.files.length > 0) {
+            for (let i = 0; i <= fi.files.length - 1; i++) {
+  
+                let fsize = fi.files.item(i).size;
+                let file = Math.round((fsize / 1024));
+                // The size of the file.
+                if (file >2048) {
+
+                    swal({
+                        title: ":(",
+                        text: "Existe un archivo sobrepasa el tamaño, seleccione archivos hasta 2mb",
+                        icon: "error",
+                    });
+                      fi.value = null;
+                      break;
+                } else {
+
+                }
+            }
+        }
+    }
+</script>
+
