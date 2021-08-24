@@ -65,7 +65,6 @@ class FileController extends Controller
     public function uploadBasic(){
         return view('files.uploadBasic');
     }
-
         
     /**
      * get admin view for upload file
@@ -84,7 +83,8 @@ class FileController extends Controller
      * @return void
      */
     public function saveDataByTag(Request $request) {
-        isset($request->name)? $user_id = $request->names[0]: $user_id = Auth::id(); 
+        
+        isset($request->names)? $user_id = $request->names[0]: $user_id = Auth::id(); 
         $files = $request->file('files');
         if ($files != null) {
             foreach($files as $file){
