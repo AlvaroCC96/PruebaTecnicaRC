@@ -84,7 +84,7 @@ class FileController extends Controller
      * @return void
      */
     public function saveDataByTag(Request $request) {
-        // Validation for sizes files
+        // Validation for sizes from files
         $validator = Validator::make($request->all(), [
             'files.*' => 'max:2048',
         ]);
