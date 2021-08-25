@@ -16,23 +16,17 @@ use App\Http\Controllers\FileController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/Files/allFiles',[FileController::class,'listAdmin'])->name('listAdmin')->middleware('auth');
-Route::get('/Files/myFiles',[FileController::class,'listBasic'])->name('listBasic')->middleware('auth');
-Route::get('/uploadBasic',[FileController::class,'uploadBasic'])->name('uploadBasic')->middleware('auth');
-Route::post('/upload',[FileController::class,'saveDataByTag'])->name('saveDataByTag')->middleware('auth');
-Route::get('/uploadAdmin',[FileController::class,'uploadAdmin'])->name('uploadAdmin')->middleware('auth');
-Route::get('/download/{id}',[FileController::class,'download'])->name('download')->middleware('auth');
-
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('roles', RoleController::class);
-    Route::resource('users', UserController::class);
-    Route::resource('files', FileController::class);   
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('files', FileController::class);
+    Route::get('/Files/allFiles',[FileController::class,'listAdmin'])->name('listAdmin');
+    Route::get('/Files/myFiles',[FileController::class,'listBasic'])->name('listBasic');
+    Route::get('/uploadBasic',[FileController::class,'uploadBasic'])->name('uploadBasic');
+    Route::post('/upload',[FileController::class,'saveDataByTag'])->name('saveDataByTag');
+    Route::get('/uploadAdmin',[FileController::class,'uploadAdmin'])->name('uploadAdmin');
+    Route::get('/download/{id}',[FileController::class,'download'])->name('download');
 });
 
