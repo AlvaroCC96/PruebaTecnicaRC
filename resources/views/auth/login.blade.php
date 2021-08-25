@@ -8,9 +8,16 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="row text-center justify-content-center">
+                        <div class="col">
+                            <h6>
+                                <p><strong>Usuario Admin: admin@gmail.com password: admin</strong></p>
+                                <p><strong>Usuario Basic: basic@gmail.com password: basic</strong></p>
+                            </h6>
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -64,6 +71,7 @@
                                 @endif
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

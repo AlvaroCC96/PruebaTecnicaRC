@@ -34,8 +34,34 @@
                     </nav>
                 </div>
 
-                <div class="card-body text-center">
-                    <strong>MENU DE OPCIONES</strong>
+                <div class="card-body text-center ">
+                    
+                    <div class="row">
+                        <div class="col justify-content-center">
+                            <p class="card-text ">
+                                Existen 2 tipos de usuario, Admin y Basic.
+                            </p>
+                            <p>Actualmente te encuentras en: <strong>Usuario: {{Auth::user()->roles[0]->name }} </strong> </p>
+                        </div>
+                        <div class="col">
+                            <p> <strong>Funciones Permitidas</strong></p>
+                            @if (Auth::user()->roles[0]->name =="Admin")
+                                <p>Un usuario Admin puede ver <strong>todos</strong> los archivos del sistema y descargarlos</p>
+                                <p>
+                                    Un usuario Admin puede subir <strong> 1 </strong> archivo y asignarle el usuario a cargo de dicho archivo.
+                                    (Subir Archivo Admin)
+                                </p>
+                                <p>Un usuario Admin subir varios archivos al sistema , estos quedan asignados a el mismo. (Subir Archivos Basic)</p>
+                                <p>Un usuario Admin puede ver sus propios archivos del sistema y descargarlos </p>
+                                <p>Un usuario Admin puede eliminar y editar archivos del sistema</p>
+                            @elseif(Auth::user()->roles[0]->name =="Basic") 
+                                <p>Un usuario Basic subir varios archivos al sistema , estos quedan asignados a el mismo. (Subir Archivos Basic)</p>
+                                <p>Un usuario Basic puede ver sus propios archivos del sistema y descargarlos </p>   
+                            @endif
+                        </div>
+
+                    </div>
+
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session("status") }}
