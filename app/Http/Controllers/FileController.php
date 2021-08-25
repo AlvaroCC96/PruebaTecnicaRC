@@ -169,4 +169,60 @@ class FileController extends Controller
             return back();
         } 
     }
+
+    /**
+     * Delete file and registre from Storage and DB_DATABASE
+     * @param mixed $id
+     * @return void
+     */
+    public function destroy($id){
+
+        try{
+            $file_db = File::select()->where('id',$id)->get()[0];
+            // Delete from STORAGE 
+            Storage::delete($file_db->route);
+            // Delete from DB
+            $file_db->delete();
+            Alert::success('Eliminación', 'Eliminación exitosa');
+            return back();
+        } catch(Exception $e) {
+            Alert::error('Error', 'ha ocurrido un error al intentar eliminar el archivo');
+            return back();
+        }
+    }
+    /**
+     * Return view with file to edit
+     * @param mixed $id
+     * @return view
+     */
+    public function edit($id){
+        $file = File::select()->where('id',$id)->first();
+        $users = User::all();
+        return view('files.edit', compact('file','users'));
+    }
+
+    public function update(Request $request, $id) {
+        try{
+            $file = File::select()->where('id',$id)->first();
+            $new_user_id = $request->new_user;
+            $old_route = $file->route;
+            $full_name = $file->file_name.'.'.$file->extension;
+            $new_route = './'.'public/'.$new_user_id.'/'.$full_name;
+            
+            // Update Storage
+            Storage::move($old_route,$new_route);
+
+            //Update Database
+            $file->user_id = $new_user_id;
+            $file->route = $new_route;
+            $file->save();
+
+            Alert::success('Actualización completada');
+            return back();
+        } catch (Exception $exception) {
+            Alert::error('Error', 'ha ocurrido un error al intentar actualizar el archivo');
+            return back();
+        }
+    }   
+    
 }
