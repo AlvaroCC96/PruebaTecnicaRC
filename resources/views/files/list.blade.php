@@ -15,6 +15,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre Archivo</th>
+                                <th>Propietario</th>
                                 <th width="280px">Acción</th>
                             </tr>
                         </thead>
@@ -23,10 +24,18 @@
                         <tr>
                             <td>{{ $file->id }}</td>
                             <td>{{ $file->file_name.".".$file->extension }}</td>
+                            <td> {{$file->user->name}}</td>
                             <td>
-                                <a href="{{route('download',$file->id)}}" class="btn btn-primary" type="button"> Descargar</a>
+                                <a href="{{route('download',$file->id)}}" class="btn btn-sm btn-success" type="button"> Descargar</a>
+                                @if (Auth::user()->role('admin'))
+                                    <a href="{{route('files.edit',$file->id)}}" class="btn btn-sm btn-warning" type="button"> Editar</a>
+                                @endif
+                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-delete-{{$file->id}}">
+                                    Eliminar
+                                </button>                
                             </td>   
                         </tr>
+                        @include('files.delete')
                         @endforeach
                     </table>
                 </div>
