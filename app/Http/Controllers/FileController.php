@@ -201,6 +201,11 @@ class FileController extends Controller
         return view('files.edit', compact('file','users'));
     }
 
+    /**
+     * 
+     * Update file owner in DB and Storage
+     * @return void
+     */
     public function update(Request $request, $id) {
         try{
             $file = File::select()->where('id',$id)->first();
