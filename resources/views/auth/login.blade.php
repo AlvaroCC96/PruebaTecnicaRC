@@ -4,15 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card border-dark">
+                <div class="card-header bg-secondary text-white text-center border-dark">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <div class="row text-center justify-content-center">
                         <div class="col">
                             <h6>
-                                <p><strong>Usuario Admin: admin@gmail.com password: admin</strong></p>
-                                <p><strong>Usuario Basic: basic@gmail.com password: basic</strong></p>
+                                <p><strong>Usuario Admin: admin@admin.com password: admin</strong></p>
+                                <p><strong>Usuario Basic: basic@basic.com password: basic</strong></p>
                             </h6>
                         </div>
                     </div>

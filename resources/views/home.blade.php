@@ -2,19 +2,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+            <div class="card border-dark">
+                <div class="card-header bg-secondary text-white border-dark text-center d-flex justify-content-center">
+                    <nav class="navbar navbar-expand-sm navbar-light bg-secondary text-center text-white">
+                        
 
-                        <ul class="navbar-nav mr-auto">
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto text-center">
+                            <div class="">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Administrar Archivos
                                     </a>
