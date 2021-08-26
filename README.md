@@ -44,8 +44,8 @@ php artisan migrate:refresh --seed
 
 | Tipo |  Usuario | Contraseña |
 | ------ | ------ | ------ | 
-| `Admin` | `admin@gmail.com` |`admin` |
-| `Basic` | `basic@gmail.com` |`basic` |
+| `Admin` | `admin@admin.com` |`admin` |
+| `Basic` | `basic@basic.com` |`basic` |
 
 ---
 ## Autor
